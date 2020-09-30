@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hamza.shakeel.model.Response;
 import com.hamza.shakeel.service.UniqueEmailsService;
 
 @RestController
@@ -26,14 +27,15 @@ public class UniqueEmailsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/getNumberOfUniqueEmailsUrl/{emails}")
-	public int getNumberOfUniqueEmailsUrl(@PathVariable("emails") List<String> emails) {
-		Set<String> uniqueEmails = uniqueEmailsService.getUniqueEmails(emails );
-		return uniqueEmails.size();
+	public Response getNumberOfUniqueEmailsUrl(@PathVariable("emails") List<String> emails) {
+		Response response = new Response();
+		response = uniqueEmailsService.getUniqueEmails(emails);
+		return response;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/getNumberOfUniqueEmails", consumes=MediaType.APPLICATION_JSON_VALUE)
-	public int getNumberOfUniqueEmails(@RequestBody  List<String> emails) {
-		Set<String> uniqueEmails = uniqueEmailsService.getUniqueEmails(emails );
-		return uniqueEmails.size();
+	public Response getNumberOfUniqueEmails(@RequestBody  List<String> emails) {
+		Response response = uniqueEmailsService.getUniqueEmails(emails);
+		return response;
 	}
 }

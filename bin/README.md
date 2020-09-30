@@ -5,11 +5,6 @@ Accept a list of email addresses and return an integer indicating the number of 
 Unique email addresses means they will be delivered to the same account using Gmail account matching. 
 Specifically: Gmail will ignore the placement of "." in the username. And it will ignore any portion of the username after a "+"
 
-Setup:
-1) Import this project
-2) convert the project to maven
-3) make sure to update and clean the project
-
 To run:
 Run the main method in UniqueEmailsApplication.java file as a java project.
 
